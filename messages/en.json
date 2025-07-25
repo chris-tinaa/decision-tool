@@ -24,7 +24,8 @@
     "generating": "Generating...",
     "showSample": "Show Example",
     "or": "or",
-    "aiError": "If it keeps happening, you can fill the inputs yourself"
+    "aiError": "If it keeps happening, you can fill the inputs yourself",
+    "chatboxPlaceholder": "Let's find the best option for you..."
   },
   "home": {
     "title": "Make Better Decisions, Faster",

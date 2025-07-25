@@ -24,7 +24,8 @@
     "generating": "Sedang memproses...",
     "showSample": "Lihat Contohnya",
     "or": "atau",
-    "aiError": "Coba lagi, atau coba isi inputnya sendiri yuk!"
+    "aiError": "Coba lagi, atau coba isi inputnya sendiri yuk!",
+    "chatboxPlaceholder": "Mari temukan pilihan terbaik untukmu..."
   },
   "home": {
     "title": "Bikin Keputusan Lebih Tepat, Lebih Cepat",

@@ -5,13 +5,12 @@ import {
   Dices,
   BarChart2,
   ListChecks,
-  GitBranch,
   Scale,
   LayoutGrid,
-  DollarSign,
-  Map,
+  Send,
 } from "lucide-react"
 import { ToolCard } from "@/components/tool-card"
+import { TextareaWithButton } from "@/components/textarea-with-button"
 
 
 export default function Home() {
@@ -31,6 +30,17 @@ export default function Home() {
                   {t("home.subtitle")}
                 </p>
               </div>
+            </div>
+
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 mt-8">
+              <TextareaWithButton
+                placeholder={t("common.chatboxPlaceholder")}
+                action={
+                  {
+                    icon: <Send />
+                  }
+                }
+              />
             </div>
 
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 mt-8 md:grid-cols-3">
