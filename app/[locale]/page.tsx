@@ -125,26 +125,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-16 md:flex-row">
-          {/* Existing footer text */}
-          <p className="text-center text-sm leading-loose text-gray-500 md:text-left">
-            {t("home.footer")}
-          </p>
-
-          <a
-            href="https://buymeacoffee.com/chrislinlig"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium 
-                 transition-colors bg-pink-300 hover:bg-pink-400 focus:outline-none 
-                 focus:ring-2 focus:ring-offset-2 focus:ring-pink-300"
-          >
-            <span className="text-xl">☕</span>
-            Buy me a coffee
-          </a>
-        </div>
-      </footer>
     </>
   )
 }
