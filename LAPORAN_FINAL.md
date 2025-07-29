@@ -1,7 +1,8 @@
 # Proses Desain & Prompt Engineering
 
 ## 1. Reality Filter
-I started the conversation with a prompt that I copied from somewhere on Twitter. 
+Sometimes I started the conversation with this prompt. I found it on social media as a trick to reduce hallucination.
+
 ```
 REALITY FILTER
 •Never present generated, inferred, speculated, or deduced content as fact.
@@ -26,7 +27,57 @@ REALITY FILTER
 #### Analisis singkat
 The AI now lets me know if it's unsure about something instead of acting like it knows everything and ends up making things up. I think it's kinda useful.
 
-## 2. Improve reusable component
+## 2. Ideation
+
+Saya menggunakan struktur prompt Role + Task + Context untuk memminta ide dari AI. Berikut prompt yang saya gunakan dan hasilnya.
+
+<img width="807" height="365" alt="image" src="https://github.com/user-attachments/assets/b7cbf250-5a22-43fc-aec9-015b530c8d61" />
+
+<img width="829" height="541" alt="image" src="https://github.com/user-attachments/assets/b2dc63a7-27cf-48c8-9094-3ce957561991" />
+
+<img width="856" height="623" alt="image" src="https://github.com/user-attachments/assets/a5980587-569a-42b2-b792-ef3ac2673194" />
+
+
+#### Analisis singkat
+Saya mendapat insight terkait apa-apa saya yang bisa saya tambahkan ke aplikasi yang mau dibangun.
+
+
+## 3. Project Initialization
+
+Saya menggunakan prompt dengan CRISPE (Capacity, Role, Insight, Personality, Experiment) Framework untuk menginisiasi project.
+
+```
+You are an expert full-stack developer and product designer. I want you to help me build a web-based decision support tool with the following requirements.
+
+Project Overview:
+- The app helps users make better choices using 9 different decision-making frameworks (Eisenhower Matrix, Pros & Cons, Decision Matrix, SWOT Analysis, Cost-Benefit, Decision Tree, Random Decision, Weighted Random).
+- The app supports multiple languages/locales (at least English and Indonesian) with dynamic routing and language switching.
+- The UI must be modern, use casual tone for the app wordings, and mobile-responsive.
+- All state should persist in the browser, and users can export/share their data.
+- The app integrates with OpenAI GPT-4o for intelligent decision analysis and suggestions.
+
+Development Guidelines:
+- Use Next.js (App Router), TypeScript, Tailwind CSS, and best practices for modern web apps.
+- Organize code into clear folders: components/, hooks/, lib/, i18n/, messages/, app/[locale]/, etc.Write unit tests for all utilities, hooks, components, API endpoints, and decision tool pages.
+- Ensure accessibility (ARIA, keyboard navigation), responsiveness, and performance (code splitting, bundle optimization).
+- Set up CI/CD with GitHub Actions, linting, type checking, SonarCloud, and automated deployment.
+- Document all features and provide clear implementation steps.
+
+Start by scaffolding the project structure, then proceed phase by phase as described. For each phase, provide clear implementation steps, code samples, and best practices.
+
+If you find any great tools that could add value to this app, just add it.
+```
+
+#### Analisis singkat
+
+AI menghasilkan sebuah repository MVP beserta implementation plan-nya. 
+- Hasil inisialisasi ini sangat membantu karena saya bisa langsung skip pembuatan boilerplate (routing, struktur folder, template function, component, dll).  
+- Terdapat beberapa error ketika saya testing manual. Dengan beberapa iterasi permintaan fixing, eror-eror tersebut bisa diselesaikan. Ada juga sebagian yang lebih cepat saya fixing sendiri dan ada bagian yang saya harus menjelaskan dengan sangat detail letak kesalahannya, terutama di bagian proses kalkulasi hasil decision yang logic-nya kompleks
+
+
+## 3.Debug dan Refactor 
+
+##### Improve reusable component
 <img width="1436" height="674" alt="image" src="https://github.com/user-attachments/assets/c963addc-0f6b-4a86-b117-d653da89ca36" />
 <img width="1433" height="683" alt="image" src="https://github.com/user-attachments/assets/1a667826-bcf2-42fc-ac97-689cee995a91" />
 <img width="1417" height="299" alt="image" src="https://github.com/user-attachments/assets/e48c6055-760d-414e-891a-172b7b505a8f" />
