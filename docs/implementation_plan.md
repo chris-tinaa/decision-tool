@@ -23,6 +23,7 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement `cookies.ts` - Cookie management for locale and preferences
 - [x] Implement `toolsConfig.ts` & `toolsConfigType.ts` - Decision tool configurations and types
 - [ ] Write unit tests for all utility functions and configurations
+- [ ] Add codecov
 
 #### Translation System (messages/ & i18n/)
 - [x] Create translation files (`en.json`, `id.json`) with base structure
