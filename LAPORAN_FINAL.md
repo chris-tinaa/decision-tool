@@ -1,6 +1,6 @@
-# Proses Desain & Prompt Engineering
+# 1. Proses Desain & Prompt Engineering
 
-## 1. Reality Filter
+## 1.1. Reality Filter
 Sometimes I started the conversation with this prompt. I found it on social media as a trick to reduce hallucination.
 
 ```
@@ -27,22 +27,27 @@ REALITY FILTER
 #### Analisis singkat
 The AI now lets me know if it's unsure about something instead of acting like it knows everything and ends up making things up. I think it's kinda useful.
 
-## 2. Ideation
+<br><br>
+
+
+## 1.2. Ideation
 
 Saya menggunakan struktur prompt Role + Task + Context untuk memminta ide dari AI. Berikut prompt yang saya gunakan dan hasilnya.
 
 <img width="807" height="365" alt="image" src="https://github.com/user-attachments/assets/b7cbf250-5a22-43fc-aec9-015b530c8d61" />
 
-<img width="829" height="541" alt="image" src="https://github.com/user-attachments/assets/b2dc63a7-27cf-48c8-9094-3ce957561991" />
+<img width="1400" height="547" alt="image" src="https://github.com/user-attachments/assets/949147fc-66d2-4e3f-bd06-1ac3e4a893e9" />
 
-<img width="856" height="623" alt="image" src="https://github.com/user-attachments/assets/a5980587-569a-42b2-b792-ef3ac2673194" />
+<img width="1408" height="582" alt="image" src="https://github.com/user-attachments/assets/b239cd37-f1e0-4724-a290-d01e80d9acba" />
 
 
 #### Analisis singkat
 Saya mendapat insight terkait apa-apa saya yang bisa saya tambahkan ke aplikasi yang mau dibangun.
 
+<br><br>
 
-## 3. Project Initialization
+
+## 1.3. Project Initialization
 
 Saya menggunakan prompt dengan CRISPE (Capacity, Role, Insight, Personality, Experiment) Framework untuk menginisiasi project.
 
@@ -74,8 +79,9 @@ AI menghasilkan sebuah repository MVP beserta implementation plan-nya.
 - Hasil inisialisasi ini sangat membantu karena saya bisa langsung skip pembuatan boilerplate (routing, struktur folder, template function, component, dll).  
 - Terdapat beberapa error ketika saya testing manual. Dengan beberapa iterasi permintaan fixing, eror-eror tersebut bisa diselesaikan. Ada juga sebagian yang lebih cepat saya fixing sendiri dan ada bagian yang saya harus menjelaskan dengan sangat detail letak kesalahannya, terutama di bagian proses kalkulasi hasil decision yang logic-nya kompleks
 
+<br><br>
 
-## 3.Debug dan Refactor 
+## 1.4. Debug dan Refactor 
 
 ##### Improve reusable component
 <img width="1436" height="674" alt="image" src="https://github.com/user-attachments/assets/c963addc-0f6b-4a86-b117-d653da89ca36" />
@@ -89,9 +95,11 @@ However, I need to do a little manual tweak for an existing component that it us
 
 
 
-# Strategi Testing & Refactoring
+<br><br>
+
+# 2. Strategi Testing & Refactoring
 
 
 
 
-# Analisis Pipeline CI/CD
+# 3. Analisis Pipeline CI/CD
