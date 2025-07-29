@@ -106,7 +106,7 @@ This project is a web-based decision support tool that helps users make better c
 - [ ] Write unit tests for prompt generation and templates
 
 ### Home Page Chatbox AI Recommendation (New Feature)
-- [ ] Add chatbox UI to home page using `TextareaWithButton` component
+- [x] Add chatbox UI to home page using `TextareaWithButton` component
 - [ ] Implement chat submit handler to call AI generation API with user input
 - [ ] Design AI prompt to recommend the best decision tool and generate options for user's context
 - [ ] Parse AI response to extract recommended tool and generated options
