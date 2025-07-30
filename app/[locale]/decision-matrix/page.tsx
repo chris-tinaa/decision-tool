@@ -1,13 +1,14 @@
-"use client"
+import React from "react";
+"use client";
 
-import { useEffect, useState } from "react"
-import { Divide, Plus, Share2, SparklesIcon, Trash2 } from "lucide-react"
-import { useTranslations, useFormatter } from "next-intl"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Slider } from "@/components/ui/slider"
+import { useEffect, useState } from "react";
+import { Divide, Plus, Share2, SparklesIcon, Trash2 } from "lucide-react";
+import { useTranslations, useFormatter } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { PageHeader } from "@/components/page-header"
 import { loadSharedData, scrollToBottom } from "@/lib/utils"

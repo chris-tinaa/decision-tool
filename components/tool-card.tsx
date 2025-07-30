@@ -1,13 +1,14 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import React from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardFooter,
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 type ToolCardProps = {
   title: string

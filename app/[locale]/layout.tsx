@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google';
 import { BrainCircuit } from 'lucide-react';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 import { Toaster } from '@/components/ui/toaster';
+import React from "react";
 
 const inter = Inter({
   subsets: ["latin"],

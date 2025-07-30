@@ -1,24 +1,32 @@
-import { prompts } from "@/lib/prompts"
-import { Tools } from "@/lib/toolsConfig"
-import { type NextRequest, NextResponse } from "next/server"
+import { prompts } from "@/lib/prompts";
+import { Tools } from "@/lib/toolsConfig";
+import { type NextRequest, NextResponse } from "next/server";
 
-export const maxDuration = 60 // 60 seconds timeout
+export const maxDuration = 60; // 60 seconds timeout
 
 export type RequestBody = {
-  decisionContext: string
-  method: Tools
-}
+  decisionContext: string;
+  method: Tools;
+};
 
 export async function POST(request: NextRequest) {
-  const apiKey = process.env.OPENAI_API_KEY
+  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    return NextResponse.json({ error: "Not available" }, { status: 500 })
+    return NextResponse.json({ error: "Not available" }, { status: 500 });
   }
 
-  const body: RequestBody = await request.json()
-  const { decisionContext, method } = body
-  const systemInstructions = prompts[method]
-  const userInstructions = `Decision Context: ${decisionContext}.`
+  let body: RequestBody | undefined;
+  try {
+    body = await request.json();
+  } catch (e) {
+    return NextResponse.json({ error: "Missing request body" }, { status: 400 });
+  }
+  if (!body) {
+    return NextResponse.json({ error: "Missing request body" }, { status: 400 });
+  }
+  const { decisionContext, method } = body;
+  const systemInstructions = prompts[method];
+  const userInstructions = `Decision Context: ${decisionContext}.`;
 
   try {
     const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -31,20 +39,24 @@ export async function POST(request: NextRequest) {
         model: "gpt-4o",
         messages: [
           { role: "system", content: systemInstructions },
-          { role: "user", content: userInstructions }
+          { role: "user", content: userInstructions },
         ],
-        stream: false
-      })
-    })
+        stream: false,
+      }),
+    });
+
+    if (!res || typeof res.ok === 'undefined') {
+      return NextResponse.json({ error: "Not available" }, { status: 500 });
+    }
 
     if (!res.ok) {
       return NextResponse.json(
         { error: "Error calling API" },
         { status: res.status }
-      )
+      );
     }
 
-    const data = await res.json()
+    const data = await res.json();
     const aiResponse = data.choices?.[0]?.message?.content ?? "";
 
     let result;
@@ -56,9 +68,9 @@ export async function POST(request: NextRequest) {
         { status: 200 }
       );
     }
-    return NextResponse.json({ result })
+    return NextResponse.json({ result });
   } catch (error) {
-    console.error("AI processing error:", error)
-    return NextResponse.json({ error: "Failed to process AI request" }, { status: 500 })
+    console.error("AI processing error:", error);
+    return NextResponse.json({ error: "Failed to process AI request" }, { status: 500 });
   }
 }

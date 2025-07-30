@@ -22,15 +22,15 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement `utils.ts` - General utility functions (formatting, parsing, helpers)
 - [x] Implement `cookies.ts` - Cookie management for locale and preferences
 - [x] Implement `toolsConfig.ts` & `toolsConfigType.ts` - Decision tool configurations and types
-- [ ] Write unit tests for all utility functions and configurations
-- [ ] Add codecov
+- [x] Write unit tests for all utility functions and configurations
+- [x] Add codecov
 
 #### Translation System (messages/ & i18n/)
 - [x] Create translation files (`en.json`, `id.json`) with base structure
 - [x] Implement `i18n/settings.ts` - Locale configuration and supported languages
 - [x] Implement `i18n/request.ts` - Locale detection and translation loading utilities
-- [ ] Write unit tests for translation file structure and locale detection
-- [ ] Write validation tests for missing/unused translation keys
+- [x] Write unit tests for translation file structure and locale detection
+- [x] Write validation tests for missing/unused translation keys
 
 ### 1.2 Core Hooks & State Management
 **Goal**: Build the foundational hooks that will be used throughout the application.
@@ -40,7 +40,7 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement `useBreakpoint.ts` - Responsive design utilities
 - [x] Implement `useToast.ts` - Notification system state management
 - [x] Implement `useDecisionTool.ts` - Central state management for all decision tools
-- [ ] Write comprehensive unit tests for all hooks
+- [x] Write comprehensive unit tests for all hooks
 
 ---
 
@@ -58,7 +58,7 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement `tabs.tsx` - Tab navigation system
 - [x] Implement `progress.tsx`, `separator.tsx` - Layout and progress indicators
 - [x] Implement `tooltip.tsx` - Contextual help system
-- [ ] Write unit tests for all UI components
+- [x] Write unit tests for all UI components
 - [ ] Ensure accessibility (ARIA, keyboard navigation) for all components
 - [x] Ensure responsiveness (mobile/desktop) for all components
 
@@ -70,12 +70,12 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement `alert-dialog.tsx` - Warning and error alerts
 - [x] Implement `loading-overlay.tsx` - Loading state management
 - [x] Implement `toast.tsx` & `toaster.tsx` - Toast notification system
-- [ ] Write unit tests for all dialog and overlay components
+- [x] Write unit tests for all dialog and overlay components
 
 #### Feature-Specific Components (components/)
 - [x] Implement `tool-card.tsx` - Decision tool selection cards
 - [x] Implement `textarea-with-button.tsx` - Combined input and action component
-- [ ] Write unit tests for feature-specific components
+- [x] Write unit tests for feature-specific components
 
 ---
 
@@ -91,19 +91,19 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement response formatting and error handling
 - [x] Secure API key management (environment variables)
 - [x] Add comprehensive logging for errors and events
-- [ ] Write unit tests for API endpoint (valid/invalid requests)
-- [ ] Write unit tests for OpenAI integration (mocked)
-- [ ] Write unit tests for error handling and edge cases
+- [x] Write unit tests for API endpoint (valid/invalid requests)
+- [x] Write unit tests for OpenAI integration (mocked)
+- [x] Write unit tests for error handling and edge cases
 
 #### AI Integration Hook (hooks/)
 - [x] Implement `useAiGeneration.ts` - API communication and state management
 - [x] Handle loading states, results, and error scenarios
-- [ ] Write unit tests for AI generation hook (with mocked API)
+- [x] Write unit tests for AI generation hook (with mocked API)
 
 ### AI Prompt System (lib/)
 - [x] Implement `prompts.ts` - AI prompt templates for each decision tool
 - [x] Create context-aware prompts for better AI responses
-- [ ] Write unit tests for prompt generation and templates
+- [x] Write unit tests for prompt generation and templates
 
 ### Home Page Chatbox AI Recommendation (New Feature)
 - [x] Add chatbox UI to home page using `TextareaWithButton` component
@@ -125,14 +125,14 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement dynamic locale routing (e.g., /en, /id, etc.)
 - [x] Create shared layout component for locale pages
 - [x] Implement locale detection and redirection logic
-- [ ] Write unit tests for locale routing and layout
+- [x] Write unit tests for locale routing and layout
 
 #### Language Switching (components/)
 - [x] Implement `language-switcher.tsx` - Language selection component
 - [x] Integrate with i18n system for locale updates
 - [x] Ensure state preservation during language switches
 - [x] Add language switcher to main layout
-- [ ] Write unit tests for language switcher and integration
+- [x] Write unit tests for language switcher and integration
 
 ### 4.2 SEO & Metadata
 **Goal**: Implement locale-aware SEO features.
@@ -150,16 +150,18 @@ This project is a web-based decision support tool that helps users make better c
 ### 5.1 Sample Data & Export System
 **Goal**: Prepare supporting systems before building individual tools.
 
+
 #### Supporting Systems (lib/)
 - [x] Implement `sampleData.ts` - Example data for each decision tool
 - [x] Implement `export-utils.ts` - Data export functionality (CSV, JSON)
-- [ ] Write unit tests for sample data and export utilities
+- [x] Write unit tests for sample data and export utilities
+
 
 #### Sharing & Export Components (components/)
 - [x] Implement `share-url-button.tsx` - URL-based state sharing
 - [x] Implement `see-result-button.tsx` - Result navigation and display
 - [x] Create hook for URL state serialization (`useShareUrl`)
-- [ ] Write unit tests for sharing components and URL serialization
+- [x] Write unit tests for sharing components and URL serialization
 
 ### 5.2 Decision Tool Pages
 **Goal**: Implement all decision tool pages with consistent patterns and full functionality.
@@ -183,7 +185,7 @@ This project is a web-based decision support tool that helps users make better c
 - [x] Implement state persistence for all tools
 - [x] Add export functionality to all tools
 - [x] Add sharing capabilities to all tools
-- [ ] Write unit tests for each decision tool page
+- [x] Write unit tests for each decision tool page
 - [ ] Write integration tests for tool-to-tool navigation
 
 ---
