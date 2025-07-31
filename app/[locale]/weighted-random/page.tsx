@@ -1,5 +1,6 @@
+"use client"; 
 import React from "react";
-"use client";
+
 
 import { useEffect, useState } from "react";
 import { Dices, Plus, Trash2, SparklesIcon, Share2 } from "lucide-react";

@@ -1,6 +1,6 @@
-import React from "react";
 "use client";
 
+import React from "react";
 import { useEffect, useState } from "react";
 import { Divide, Plus, Share2, SparklesIcon, Trash2 } from "lucide-react";
 import { useTranslations, useFormatter } from "next-intl";
