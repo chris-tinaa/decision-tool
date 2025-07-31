@@ -17,7 +17,7 @@ import ShareUrlButton from "@/components/share-url-button"
 import { useDecisionTool } from "@/hooks/useDecisionTool"
 import { Tools } from "@/lib/toolsConfig"
 import { DecisionMatrixData } from "@/lib/toolsConfigType"
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { LoadingOverlay } from "@/components/loading-overlay"
 import { ConfirmationDialog } from "@/components/confirmation-dialog"
 import { useIsMobile } from "@/hooks/useBreakpoint"
@@ -50,6 +50,27 @@ export default function DecisionMatrixPage() {
     updateLocalStorage,
     showSampleData
   } = useDecisionTool<DecisionMatrixData>(tool);
+
+  const searchParams = useSearchParams();
+  const [paramContext, setParamContext] = useState<string | null>(searchParams.get("context"));
+
+  useEffect(() => {
+    if (paramContext) {
+      resetData();
+      setData((prevData) => ({
+        ...prevData,
+        decisionContext: paramContext,
+      }));
+
+      generateFromContext(paramContext);
+
+      const currentUrl = window.location.href;
+      const urlWithoutContext = currentUrl.replace(/[?&]context=[^&]*/, "");
+      router.replace(urlWithoutContext);
+      setParamContext(null);
+    }
+  }, [paramContext, setData, resetData, generateFromContext, router]);
+
 
   const [newOptionName, setNewOptionName] = useState("");
   const [newCriterionName, setNewCriterionName] = useState("");

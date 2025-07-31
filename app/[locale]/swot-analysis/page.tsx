@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import React from "react";
 
 
@@ -16,7 +16,7 @@ import { cn, loadSharedData } from "@/lib/utils";
 import { useDecisionTool } from "@/hooks/useDecisionTool";
 import { SwotAnalysisData, SwotItem } from "@/lib/toolsConfigType"; // or define inline
 import { Tools } from "@/lib/toolsConfig";
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ConfirmationDialog } from "@/components/confirmation-dialog";
 import { Textarea } from "@/components/ui/textarea";
 import { LoadingOverlay } from "@/components/loading-overlay";
@@ -48,6 +48,27 @@ export default function SwotAnalysisPage() {
     updateLocalStorage,
     showSampleData
   } = useDecisionTool<SwotAnalysisData>(tool);
+
+  const searchParams = useSearchParams();
+  const [paramContext, setParamContext] = useState<string | null>(searchParams.get("context"));
+
+  useEffect(() => {
+    if (paramContext) {
+      resetData();
+      setData((prevData) => ({
+        ...prevData,
+        decisionContext: paramContext,
+      }));
+
+      generateFromContext(paramContext);
+
+      const currentUrl = window.location.href;
+      const urlWithoutContext = currentUrl.replace(/[?&]context=[^&]*/, "");
+      router.replace(urlWithoutContext);
+      setParamContext(null); 
+    }
+  }, [paramContext, setData, resetData, generateFromContext, router]);
+
 
   // Destructure fields from the single `data` object
   const {
@@ -147,18 +168,6 @@ export default function SwotAnalysisPage() {
         break;
     }
   };
-
-  // Example AI merges new items into each category
-  const handleGenerateSwot = (aiResult: any) => {
-    if (!aiResult) return;
-    // transformAiResult is automatically called if you're using generateFromContext
-    // but you can do final merges here if needed:
-    // e.g., if we got { generatedStrengths, ... } from transformAiResult
-    // setData({ ...data, strengths: [...strengths, ...generatedStrengths], ... })
-  };
-
-  // Also, your custom logic if you want a final analysis or recommendations
-  // could live here, gating behind `showResult`.
 
   if (!mounted) {
     return null;

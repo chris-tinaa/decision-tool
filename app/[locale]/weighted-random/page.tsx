@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import React from "react";
 
 
@@ -25,7 +25,7 @@ import { cn, loadSharedData, scrollToBottom } from "@/lib/utils";
 import { useDecisionTool } from "@/hooks/useDecisionTool";
 import { WeightedOption, WeightedRandomData } from "@/lib/toolsConfigType";
 import { Tools } from "@/lib/toolsConfig";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ConfirmationDialog } from "@/components/confirmation-dialog";
 import { Textarea } from "@/components/ui/textarea";
 import { LoadingOverlay } from "@/components/loading-overlay";
@@ -55,6 +55,26 @@ export default function WeightedRandomPage() {
     updateLocalStorage,
     showSampleData,
   } = useDecisionTool<WeightedRandomData>(tool);
+
+  const searchParams = useSearchParams();
+  const [paramContext, setParamContext] = useState<string | null>(searchParams.get("context"));
+
+  useEffect(() => {
+    if (paramContext) {
+      resetData();
+      setData((prevData) => ({
+        ...prevData,
+        decisionContext: paramContext,
+      }));
+
+      generateFromContext(paramContext);
+
+      const currentUrl = window.location.href;
+      const urlWithoutContext = currentUrl.replace(/[?&]context=[^&]*/, "");
+      router.replace(urlWithoutContext);
+      setParamContext(null);
+    }
+  }, [paramContext, setData, resetData, generateFromContext, router]);
 
   const {
     decisionContext,

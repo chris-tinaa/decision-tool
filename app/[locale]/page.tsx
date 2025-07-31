@@ -98,10 +98,10 @@ export default function Home() {
                   {recommendedTools.map((tool, idx) => (
                     <Link
                       key={tool}
-                      href={tool}
+                      href={{ pathname: tool, query: { context: textareaValue } }}
                       className={clsx(
                         "flex items-center justify-between rounded-xl px-3 py-2 bg-white dark:bg-zinc-950 shadow border transition-all group hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer min-w-[160px] max-w-xs w-4/12",
-                        idx === 0 && "border-2 border-blue-500"  
+                        idx === 0 && "border-2 border-blue-500"
                       )}
                     >
                       <span className="font-medium text-sm truncate">
