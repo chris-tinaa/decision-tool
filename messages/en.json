@@ -31,7 +31,8 @@
     "title": "Make Better Decisions, Faster",
     "subtitle": "Choose from multiple decision-making frameworks to help you make the right choice.",
     "aiPowered": "Powered by AI to enhance your decision-making",
-    "footer": "© 2025 Decision Maker Lab. All rights reserved."
+    "footer": "© 2025 Decision Maker Lab. All rights reserved.",
+    "recommendedTools": "Recommended Tools"
   },
   "tools": {
     "decisionMatrix": {

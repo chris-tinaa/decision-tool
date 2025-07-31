@@ -4,7 +4,7 @@ import { Tools } from "@/lib/toolsConfig";
 import { useToast } from "./use-toast";
 import { useTranslations } from "next-intl";
 
-export function useAiGeneration(toolName: Tools, onAiResult?: (result: any) => void) {
+export function useAiGeneration(toolName: Tools | 'recommendTool', onAiResult?: (result: any) => void) {
   const [generating, setGenerating] = useState(false);
   const { toast } = useToast()
   const t = useTranslations()

@@ -236,28 +236,27 @@ export const prompts: Record<Tools, string> = {
     }`
 };
 
-export const selectToolPrompt: string = `
+export const recommendToolPrompt: string = `
 You are an AI that chooses the most suitable decision-support tool for a given situation.
 
 **Available tools & when to use them**
-- "decisionMatrix" – comparing several clear options against multiple weighted criteria.
-- "prosCons" – quick high-level positives vs. negatives for a single option or simple yes/no choice.
-- "costBenefit" – tallying monetary & non-monetary costs versus benefits across timeframes.
-- "decisionTree" – modelling sequential choices with probabilistic outcomes and payoffs.
-- "eisenhowerMatrix" – prioritising tasks by urgency and importance.
-- "randomDecision" – low-stakes decisions where any option is acceptable.
-- "scenarioPlanning" – stress-testing options against multiple plausible future scenarios.
-- "swotAnalysis" – analysing internal strengths/weaknesses and external opportunities/threats.
-- "weightedRandom" – random selection where some options deserve higher odds.
+- "/decision-matrix" – comparing several clear options against multiple weighted criteria.
+- "/pros-cons" – quick high-level positives vs. negatives for a single option or simple yes/no choice.
+- "/decision-tree" – modelling sequential choices with probabilistic outcomes and payoffs.
+- "/eisenhower-matrix" – prioritising tasks by urgency and importance.
+- "/random-decision" – low-stakes decisions where any option is acceptable.
+- "/swot-analysis" – analysing internal strengths/weaknesses and external opportunities/threats.
+- "/weighted-random" – random selection where some options deserve higher odds.
 
 **Instructions**
 1. Read only the user-supplied *decision context*.
-2. Pick **exactly one** tool whose purpose aligns best.  
-   - If two tools are genuinely tied, return both—never more than two.
-3. Respond with **valid JSON only**, no markdown or commentary, using this schema:
+2. Pick **exactly two** tools whose purpose aligns best.  
+   - If more tools are genuinely tied, return all—never more than three.
+3. Output schema:
 
 {
-  "selectedTools": ["toolKey1"]        // or ["toolKey1", "toolKey2"]
+  "recommendedTools": ["/tool-1", "/tool-2"]
 }
 
+Return MUST ONLY be valid JSON. No markdown, no explanations, no preamble or postscript. Do not wrap the JSON in backticks.
 Use the tool keys exactly as listed above—do not invent new keys or change spelling. Keep the list order reflecting your confidence (best first).`;

@@ -1,4 +1,4 @@
-import { prompts } from "@/lib/prompts";
+import { prompts, recommendToolPrompt } from "@/lib/prompts";
 import { Tools } from "@/lib/toolsConfig";
 import { type NextRequest, NextResponse } from "next/server";
 
@@ -6,7 +6,7 @@ export const maxDuration = 60; // 60 seconds timeout
 
 export type RequestBody = {
   decisionContext: string;
-  method: Tools;
+  method: Tools | 'recommendTool';
 };
 
 export async function POST(request: NextRequest) {
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Missing request body" }, { status: 400 });
   }
   const { decisionContext, method } = body;
-  const systemInstructions = prompts[method];
+  const systemInstructions = method === 'recommendTool' ? recommendToolPrompt : prompts[method];
   const userInstructions = `Decision Context: ${decisionContext}.`;
 
   try {

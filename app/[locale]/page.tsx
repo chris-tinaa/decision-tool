@@ -12,25 +12,49 @@ import {
 import { ToolCard } from "@/components/tool-card"
 import { TextareaWithButton } from "@/components/textarea-with-button"
 import { useState } from "react"
+import { useAiGeneration } from "@/hooks/useAiGeneration"
+import Link from "next/link"
+import clsx from "clsx"
 
 
 export default function Home() {
   const t = useTranslations()
 
-  const [loading, setLoading] = useState(false);
   const [textareaValue, setTextareaValue] = useState("");
+  const [recommendedTools, setRecommendedTools] = useState<string[]>([]);
+
+  const { generating, generateFromContext } = useAiGeneration('recommendTool', (aiResponse) => {
+    if (!aiResponse) return;
+
+    if (aiResponse.recommendedTools) {
+      setRecommendedTools(aiResponse.recommendedTools);
+    }
+  });
 
   const handleButtonClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    setRecommendedTools([]);
+    generateFromContext(textareaValue);
   };
 
   const recommendTool = {
     icon: <Send />,
     onClick: handleButtonClick,
-    loading: loading,
+    loading: generating,
+  };
+
+  // Helper to get tool display name from path
+  const getToolName = (toolPath: string) => {
+    switch (toolPath) {
+      case "/decision-matrix": return t("tools.decisionMatrix.title");
+      case "/pros-cons": return t("tools.prosCons.title");
+      case "/random-decision": return t("tools.randomDecision.title");
+      case "/weighted-random": return t("tools.weightedRandom.title");
+      case "/eisenhower-matrix": return t("tools.eisenhowerMatrix.title");
+      case "/swot-analysis": return t("tools.swotAnalysis.title");
+      case "/cost-benefit": return t("tools.costBenefit.title");
+      case "/scenario-planning": return t("tools.scenarioPlanning.title");
+      default: return toolPath;
+    }
   };
 
   return (
@@ -56,9 +80,47 @@ export default function Home() {
                 placeholder={t("common.chatboxPlaceholder")}
                 action={recommendTool}
                 maxChar={200}
-                rows={3}
               />
             </div>
+
+            {/* Recommended Tools Section */}
+            {recommendedTools.length > 0 && (
+              <div className="mx-auto max-w-5xl mt-8 bg-zinc-50 dark:bg-zinc-900/20 rounded-2xl py-6 px-6 animate-fade-in">
+                <div className="flex flex-col mb-2">
+                  <span className="text-sm font-medium text-zinc-600 dark:text-zinc-300">
+                    {t("home.recommendedTools", { defaultValue: "Recommended Tools" })}
+                  </span>
+                  <span className="text-xs text-zinc-400 dark:text-zinc-400 mt-1">
+                    {textareaValue}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-4 justify-start mt-3">
+                  {recommendedTools.map((tool, idx) => (
+                    <Link
+                      key={tool}
+                      href={tool}
+                      className={clsx(
+                        "flex items-center justify-between rounded-xl px-3 py-2 bg-white dark:bg-zinc-950 shadow border transition-all group hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer min-w-[160px] max-w-xs w-4/12",
+                        idx === 0 && "border-2 border-blue-500"  
+                      )}
+                    >
+                      <span className="font-medium text-sm truncate">
+                        {getToolName(tool)}
+                        {idx === 0 && (
+                          <span className="ml-2 text-xs">
+                            👍
+                          </span>
+                        )}
+                      </span>
+                      <span className="ml-2 text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-200">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+                      </span>
+                    </Link>
+
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 mt-8 md:grid-cols-3">
               <ToolCard

@@ -31,7 +31,8 @@
     "title": "Bikin Keputusan Lebih Tepat, Lebih Cepat",
     "subtitle": "Pilih dari berbagai metode buat nentuin pilihan yang pas.",
     "aiPowered": "Didukung AI buat bantu kamu ambil keputusan",
-    "footer": "© 2025 Decision Maker Lab. Hak Cipta Dilindungi."
+    "footer": "© 2025 Decision Maker Lab. Hak Cipta Dilindungi.",
+    "recommendedTools": "Rekomendasi Tool"
   },
   "tools": {
     "decisionMatrix": {

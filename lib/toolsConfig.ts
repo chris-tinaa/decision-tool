@@ -1,6 +1,6 @@
 import { CostBenefitData, CostBenefitItem, CostBenefitResult, Criterion, DecisionMatrixData, DecisionMatrixResult, DecisionTreeData, DecisionTreeResult, EisenhowerMatrixData, EisenhowerMatrixResult, EisenhowerTask, Option, OptionPlan, ProsConsData, ProsConsResult, RandomDecisionData, RandomDecisionResult, Scenario, ScenarioPlanningData, ScenarioPlanningResult, SwotAnalysisData, SwotAnalysisResult, SwotItem, TreeNode, WeightedOption, WeightedRandomData, WeightedRandomResult } from "./toolsConfigType";
 
-export type Tools = "decisionMatrix" | "prosCons" | "costBenefit" | "decisionTree" | "eisenhowerMatrix" | "randomDecision" | "scenarioPlanning" | "swotAnalysis" | "weightedRandom"
+export type Tools = "decisionMatrix" | "prosCons" | "costBenefit" | "decisionTree" | "eisenhowerMatrix" | "randomDecision" | "scenarioPlanning" | "swotAnalysis" | "weightedRandom" 
 
 export type DecisionToolConfig<
   TInitial,
