@@ -11,10 +11,27 @@ import {
 } from "lucide-react"
 import { ToolCard } from "@/components/tool-card"
 import { TextareaWithButton } from "@/components/textarea-with-button"
+import { useState } from "react"
 
 
 export default function Home() {
   const t = useTranslations()
+
+  const [loading, setLoading] = useState(false);
+  const [textareaValue, setTextareaValue] = useState("");
+
+  const handleButtonClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  };
+
+  const recommendTool = {
+    icon: <Send />,
+    onClick: handleButtonClick,
+    loading: loading,
+  };
 
   return (
     <>
@@ -34,12 +51,12 @@ export default function Home() {
 
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 mt-8">
               <TextareaWithButton
+                value={textareaValue}
+                onChange={(e) => setTextareaValue(e.target.value)}
                 placeholder={t("common.chatboxPlaceholder")}
-                action={
-                  {
-                    icon: <Send />
-                  }
-                }
+                action={recommendTool}
+                maxChar={200}
+                rows={3}
               />
             </div>
 
