@@ -83,16 +83,50 @@ AI menghasilkan sebuah repository MVP beserta implementation plan-nya.
 
 ## 1.4. Debug dan Refactor 
 
-##### Improve reusable component
+Previously in my code, each of decision tool has these functions.
+
+```
+  const [generating, setGenerating] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [data, setData] = useState<DecisionMatrixData>(() => {...
+
+  const generateFromContext = async (context: string) => {...
+
+  const handleShowResult = (value: boolean) =>...
+
+  const resetData = () => {...
+
+  const showSampleData = (t: ReturnType<typeof useTranslations>) => {...
+```
+
+I asked AI to refactor these repetitive functions because I want to centralize these logic. So that in the future, changes could be done without having to edit each tool page. It becomes like this.
+
+```
+  const {
+    data,
+    setData,
+    generating,
+    generateFromContext,
+    loading,
+    handleShowResult,
+    resetData,
+    updateLocalStorage,
+    showSampleData
+  } = useDecisionTool<DecisionMatrixData>(tool);
+```
+<img width="925" height="295" alt="image" src="https://github.com/user-attachments/assets/102f64c8-7ad7-457f-a48b-38c75ceb7b9e" />
+
+
+
+### Improve reusable component
 <img width="1436" height="674" alt="image" src="https://github.com/user-attachments/assets/c963addc-0f6b-4a86-b117-d653da89ca36" />
 <img width="1433" height="683" alt="image" src="https://github.com/user-attachments/assets/1a667826-bcf2-42fc-ac97-689cee995a91" />
 <img width="1417" height="299" alt="image" src="https://github.com/user-attachments/assets/e48c6055-760d-414e-891a-172b7b505a8f" />
 
-
-#### Analisis singkat
+#### Analisis singkat 
 The result is very helpful and comprehensive. It even provides which parts have been enhanced and how to use the component. 
 However, I need to do a little manual tweak for an existing component that it uses since I didn't provide the component as context. It doesn't matter anyway. I could just tell it to make some changes there too.
-
 
 
 <br><br>
