@@ -59,3 +59,5 @@ jobs:
           slug: chris-tinaa/decision-tool
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
