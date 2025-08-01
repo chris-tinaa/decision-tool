@@ -38,6 +38,7 @@ jobs:
       - run: npm ci
       - run: npm run test -- --coverage || true
 
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
@@ -51,6 +52,11 @@ jobs:
         run: npm run test -- --coverage --reporter=verbose || true
       - name: Check coverage files
         run: ls -la coverage/ || echo "Coverage directory not found"
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: chris-tinaa/decision-tool
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
