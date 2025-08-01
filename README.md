@@ -1,6 +1,6 @@
 # Decision Tool
 
-[![codecov](https://codecov.io/gh/<your-username>/<your-repo>/branch/main/graph/badge.svg)](https://codecov.io/gh/<your-username>/<your-repo>)
+[![codecov](https://codecov.io/gh/chris-tinaa/decision-tool/dev/main/graph/badge.svg)](https://codecov.io/gh/chris-tinaa/decision-tool)
 
 Decision Tool adalah aplikasi web yang membantu Anda memilih metode pengambilan keputusan terbaik untuk berbagai situasi. Dengan berbagai framework populer dan fitur AI, aplikasi ini cocok untuk individu, pelajar, profesional, maupun tim yang ingin mengambil keputusan secara objektif dan terstruktur.
 
