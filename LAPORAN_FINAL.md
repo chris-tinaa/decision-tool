@@ -1,4 +1,4 @@
-<img width="1470" height="818" alt="image" src="https://github.com/user-attachments/assets/d744f743-ff14-4691-b62d-ce3bf3392ccd" /># 1. Proses Desain & Prompt Engineering
+# 1. Proses Desain & Prompt Engineering
 
 ## 1.1. Reality Filter
 Sometimes I started the conversation with this prompt. I found it on social media as a trick to reduce hallucination.
