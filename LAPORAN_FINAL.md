@@ -133,22 +133,18 @@ However, I need to do a little manual tweak for an existing component that it us
 
 # 2. Testing
 
-How to 
+Saya meng-generate script testing dengan AI Agent. Testing juga running otomatis di GitHub Actions untuk setiap push dan pull request. Untuk report coverage, ada integrasi dengan codecov dan badgenya ditambah ke readme.
+
+Tool yang digunakan untuk unit testing adalah Vitest. Each function and hook is tested in isolation, including edge cases and error handling.
+Untuk component testing, tools yang digunakan adalah Vitest + React Testing Library. Components are rendered in test environments, and their output, accessibility, and user interactions are asserted. Dialogs, overlays, and forms are tested for correct rendering and ARIA compliance.
+
+
+<img width="1470" height="818" alt="image" src="https://github.com/user-attachments/assets/ae214afd-7750-4806-9df3-c188cadea475" />
 
 
 <br><br>
 
-# 3. Pipeline CI/CD
-
-
-
-
-
-
-
-<br><br>
-
-# 4. Dokumentasi
+# 3. Dokumentasi
 
 Saya meminta AI untuk membuat implementation_plan.md berisi checklist task yang harus dikerjakan sekaligus tracking progress yang mudah diberikan ke AI agent.
 
@@ -172,8 +168,55 @@ Development Guidelines:
 Based on above description, create a docs/implementation_task.md that consist of compherensive checklist of task need to be done, thoroughly from development to high quality deployment. Group it into phase of development.
 ```
 
-Outputnya adalah seperti berikut.
+Outputnya adalah seperti berikut. Check list ini membantu saya untuk memberi perintah yang compact kepada AI Agent.
 
 <img width="1234" height="640" alt="image" src="https://github.com/user-attachments/assets/57abd0a7-d8ef-4aac-a24d-a2057b49041f" />
+
+<br><br>
+
+
+# 4. Pipeline CI
+
+
+Pipeline CI/CD ini menggunakan GitHub Actions untuk mengotomatisasi proses development, testing, dan quality assurance. Pipeline berjalan pada setiap push ke branch main dan setiap pull request.
+
+*Pipeline Structure*
+#### 1. Lint Job
+Tujuan: Memastikan konsistensi kode dan mengikuti standar coding
+
+Menggunakan ESLint untuk JavaScript/TypeScript
+Memeriksa format kode dan potensi error
+Gagal jika ada pelanggaran aturan linting
+
+#### 2. Build Job
+Tujuan: Memvalidasi bahwa aplikasi dapat dibuild dengan sukses
+- Menggunakan Next.js build process
+- Mengoptimasi bundle untuk production
+- Memastikan tidak ada error kompilasi
+
+#### 3. Test Job
+Tujuan: Menjalankan unit dan integration tests
+
+- Menggunakan Vitest sebagai test runner
+- Generate coverage report dengan format LCOV
+- continue-on-error: true memungkinkan pipeline lanjut meski ada test yang gagal
+- Berguna untuk development stage dimana beberapa test mungkin masih dalam perbaikan
+
+#### 4. SonarCloud Job
+Tujuan: Code quality analysis dan security scanning
+
+
+<br> <br>
+
+# 5. Deployment
+
+Project di-deploy ke Vercel dengan limitasi free plan. 
+[https://decision-tool-kappa.vercel.app/id
+](https://decision-tool-kappa.vercel.app/id)
+
+<img width="1246" height="578" alt="image" src="https://github.com/user-attachments/assets/97059cb8-0bf4-44c1-9e7d-98d499a9afb0" />
+
+
+
 
 

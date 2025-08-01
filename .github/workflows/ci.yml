@@ -59,3 +59,10 @@ jobs:
           slug: chris-tinaa/decision-tool
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=chris-tinaa_decision-tool
+            -Dsonar.organization=chris-tinaa
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
