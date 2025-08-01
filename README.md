@@ -2,39 +2,49 @@
 
 [![codecov](https://codecov.io/gh/<your-username>/<your-repo>/branch/main/graph/badge.svg)](https://codecov.io/gh/<your-username>/<your-repo>)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Decision Tool adalah aplikasi web yang membantu Anda memilih metode pengambilan keputusan terbaik untuk berbagai situasi. Dengan berbagai framework populer dan fitur AI, aplikasi ini cocok untuk individu, pelajar, profesional, maupun tim yang ingin mengambil keputusan secara objektif dan terstruktur.
 
-## Getting Started
+## Fitur Utama
+- **Rekomendasi AI**: Masukkan konteks masalah Anda, dapatkan saran metode pengambilan keputusan yang paling sesuai.
+- **9 Framework Keputusan**: Termasuk Decision Matrix, Pros & Cons, Random Decision, Weighted Random, Eisenhower Matrix, SWOT Analysis, Cost Benefit, Scenario Planning, dan Decision Tree.
+- **Multi Bahasa**: Mendukung bahasa Indonesia & Inggris, dengan deteksi otomatis dan pengaturan manual.
+- **Komponen UI Modern**: Responsif, mudah digunakan, dan dapat diakses di berbagai perangkat.
+- **Ekspor & Bagikan**: Simpan atau bagikan hasil keputusan Anda dengan mudah.
+- **Integrasi AI (OpenAI GPT-4o)**: Analisis dan saran berbasis AI untuk membantu proses berpikir Anda.
 
-First, run the development server:
+## Kegunaan
+- Membantu individu atau tim memilih opsi terbaik dalam situasi kompleks.
+- Mendukung proses brainstorming, evaluasi alternatif, dan dokumentasi keputusan.
+- Cocok untuk pelajar, profesional, manajer, konsultan, dan siapa saja yang ingin mengambil keputusan lebih baik.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Cara Instalasi
+1. Pastikan Node.js (versi 18 atau lebih baru) sudah terpasang di komputer Anda.
+2. Clone repository ini:
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo>.git
+   cd decision-tool
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   # atau
+   yarn install
+   # atau
+   pnpm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Cara Menjalankan
+1. Jalankan server pengembangan:
+   ```bash
+   npm run dev
+   # atau
+   yarn dev
+   # atau
+   pnpm dev
+   ```
+2. Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
+3. Pilih bahasa, masukkan konteks masalah, dan mulai gunakan berbagai alat pengambilan keputusan!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Untuk dokumentasi lebih lanjut, lihat file `docs/implementation_plan.md` atau kunjungi [Next.js Documentation](https://nextjs.org/docs).
