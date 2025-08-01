@@ -131,9 +131,49 @@ However, I need to do a little manual tweak for an existing component that it us
 
 <br><br>
 
-# 2. Strategi Testing & Refactoring
+# 2. Testing
+
+How to 
+
+
+<br><br>
+
+# 3. Pipeline CI/CD
 
 
 
 
-# 3. Analisis Pipeline CI/CD
+
+
+
+<br><br>
+
+# 4. Dokumentasi
+
+Saya meminta AI untuk membuat implementation_plan.md berisi checklist task yang harus dikerjakan sekaligus tracking progress yang mudah diberikan ke AI agent.
+
+```
+Project Overview:
+- The app helps users make better choices using 9 different decision-making frameworks (Eisenhower Matrix, Pros & Cons, Decision Matrix, SWOT Analysis, Cost-Benefit, Decision Tree, Random Decision, Weighted Random).
+- The app supports multiple languages/locales (at least English and Indonesian) with dynamic routing and language switching.
+- The UI must be modern, use casual tone for the app wordings, and mobile-responsive.
+- All state should persist in the browser, and users can export/share their data.
+- The app integrates with OpenAI GPT-4o for intelligent decision analysis and suggestions.
+- Each tool's data is saved in local storage
+- There's a share url button that carry page url with encoded tool data. On open, it could be displayed in tool page
+
+Development Guidelines:
+- Use Next.js (App Router), TypeScript, Tailwind CSS, and best practices for modern web apps.
+- Organize code into clear folders: components/, hooks/, lib/, i18n/, messages/, app/[locale]/, etc.Write unit tests for all utilities, hooks, components, API endpoints, and decision tool pages.
+- Ensure accessibility (ARIA, keyboard navigation), responsiveness, and performance (code splitting, bundle optimization).
+- Set up CI/CD with GitHub Actions, linting, type checking, SonarCloud, and automated deployment.
+- Document all features and provide clear implementation steps.
+
+Based on above description, create a docs/implementation_task.md that consist of compherensive checklist of task need to be done, thoroughly from development to high quality deployment. Group it into phase of development.
+```
+
+Outputnya adalah seperti berikut.
+
+<img width="1234" height="640" alt="image" src="https://github.com/user-attachments/assets/57abd0a7-d8ef-4aac-a24d-a2057b49041f" />
+
+
