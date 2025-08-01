@@ -60,6 +60,7 @@ export async function POST(request: NextRequest) {
     const aiResponse = data.choices?.[0]?.message?.content ?? "";
 
     let result;
+    
     try {
       result = JSON.parse(aiResponse);
     } catch (err) {
