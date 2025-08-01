@@ -2,6 +2,9 @@
 
 [![codecov](https://codecov.io/gh/chris-tinaa/decision-tool/dev/main/graph/badge.svg)](https://codecov.io/gh/chris-tinaa/decision-tool)
 
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=chris-tinaa_decision-tool)
+
+
 Decision Tool adalah aplikasi web yang membantu Anda memilih metode pengambilan keputusan terbaik untuk berbagai situasi. Dengan berbagai framework populer dan fitur AI, aplikasi ini cocok untuk individu, pelajar, profesional, maupun tim yang ingin mengambil keputusan secara objektif dan terstruktur.
 
 ## Fitur Utama
